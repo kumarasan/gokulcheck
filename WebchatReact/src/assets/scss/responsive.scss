@@ -1,0 +1,110 @@
+@import "fonts.scss";
+@import "reset.scss";
+@import "mixins.scss";
+@import "variables.scss";
+
+
+body{
+  font-family: "SFUIDisplayRegular";  
+}
+
+// Login page style starts //
+// @media only screen and (max-width: 600px) and (min-width: 400px){
+
+
+// }
+@media only screen and (min-width: 1441px){
+    html{
+        font-size: 20px;   
+    }
+}
+@media only screen and (min-width: 1367px) and (max-width: 1440px){
+    html{
+        font-size: 18px;   
+    }
+
+}
+@media only screen and (max-width: 1200px) {
+    html{
+        font-size: 15px;   
+    }
+    .login-container{
+        background-image: none;
+        flex-direction: column;
+        //         /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#00c2ff+0,5f4dff+100 */
+        // background: #00c2ff; /* Old browsers */
+        // background: -moz-linear-gradient(-45deg,  #00c2ff 0%, #5f4dff 100%); /* FF3.6-15 */
+        // background: -webkit-linear-gradient(-45deg,  #00c2ff 0%,#5f4dff 100%); /* Chrome10-25,Safari5.1-6 */
+        // background: linear-gradient(135deg,  #00c2ff 0%,#5f4dff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c2ff', endColorstr='#5f4dff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        .left-side{
+            width: 100%;
+            height: auto;
+            order: 2;
+            margin: 1.667em 0 1.333em 0;
+            .banner{
+                display: none;
+            }
+            .login-instructions{
+                margin-left: 0em;
+                h2{
+                    color: $textblack;
+                }
+                ul{
+                    li{
+                        color: $textblack;
+                    }
+                }
+            } 
+        }
+        .right-side{
+            width: 100%;
+            height: auto;
+            order: 1;
+            .logo-side-block{
+                flex-direction: column;
+                margin-top: 6.667em;
+                .logo{
+                    position: static;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1024px) {
+    html{
+        font-size: 15px;   
+    }
+    .container .recent-chatlist{
+        width: 100%;
+    }
+    .container .chat-banner{
+        display: none;
+    }
+    .container .chat-conversion{
+        width: 100%;
+        position: absolute;
+        top: 0;
+    }
+    .container .chat-conversion .conversation-header .user-profile-name i.arrow-icon{
+        display: block;
+        margin-right: 1.000em;
+    }
+    .container .chat-conversion .contactinfo-popup .contactinfo{
+        width: 100%;
+    }
+
+}
+@media only screen and (max-width: 767px) {
+    html{
+        font-size: 16px;   
+    }
+    
+}
+@media only screen and (max-width: 640px) {
+    html{
+        font-size: 14px;   
+    }
+    
+}
+// Login page style ends //

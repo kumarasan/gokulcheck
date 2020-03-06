@@ -1,0 +1,1303 @@
+@import "fonts.scss";
+@import "reset.scss";
+@import "mixins.scss";
+@import "variables.scss";
+
+html{
+    font-size: 16px;
+}
+body{
+  font-family: "SFUIDisplayRegular";  
+}
+
+// Login page style starts //
+
+.login-container{
+    min-height: 100vh;
+    margin: auto;
+    width:100%;
+    @include flexbox();
+    .left-side{
+        height: 100vh;
+        width: 60%;
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);  
+        position: relative;
+        img.banner{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;       
+            z-index: -1;     ;
+        }
+        .login-instructions{
+            margin-left: -6.250em;
+            h2{
+                font-size: $font33;
+                color: $white;
+                font-family: $regular;
+            }
+            ul{
+                margin-top: 0.813em;
+                li{
+                  margin: 1.111em 0 0 0;  
+                  color: $white;
+                  font-size: $font18;
+                  font-family: $light;
+                  span{
+                    font-family: $semibold;
+                    font-size: $font18;
+                  }
+                  span.ios-icon{
+                    font-size: $font25;
+                    font-family: "SFUIDisplaylight";
+                  }
+                  i{
+                    width: 0.875em;
+                    height: 1.375em;
+                    vertical-align: middle;
+                    margin: 0 0.313em;
+                  }
+                }
+            }
+        }
+    }
+    .right-side{
+        width: 40%;
+        height: 100vh;
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        .logo-side-block{
+            position: relative;
+            @include flexbox();
+            @include justify-content(center);
+            @include align-items(center);
+            .logo{
+                max-width: 8.125em;
+                margin: 0px auto 1.250em auto;
+                position: absolute;
+                top: -5.000em;
+                img{
+                    height: 100%;
+                    width: 100%;
+                }
+            }    
+            .qr-code{
+                height: 15.875em;
+                width: 15.875em;
+                canvas{
+                    height: 100%;
+                    width: 100%;
+                }
+            } 
+            #qr-logo {
+                display: none;
+            }
+            .qr-load-container{
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.71);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .qr-load{
+                    height: 9.375em;
+                    width: 9.375em;
+                }
+            }           
+            a{
+                margin-top: 1.133em;
+                text-align: center;
+                font-size: $font15;
+                color: #3ec3fa;
+                display: block;
+            }
+            .network-disconnect{
+                @include flexbox();
+                @include justify-content(center);
+                @include flex-direction(column);
+                img{
+                    height: 9.375em;
+                    width: 9.375em;
+                    margin:auto;
+                }
+            }
+        }
+    }
+}
+
+
+// Login page style ends //
+
+
+// Chat list page style starts //
+
+.container{
+    min-height: 100vh;
+    @include flexbox();
+    @include flex-wrap(wrap);
+    .recent-chatlist{
+        min-height: 100vh;
+        width:26.30%;
+        background-color: $white;
+        position: relative;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+        .loader-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: absolute;
+            background-color: #fff;
+            left: 0;
+            top: 0;
+            height: 100%;
+        }
+        .recent-chatlist-header{
+            @include flexbox();
+            @include justify-content(space-between);
+            @include align-items(center);
+            padding: 0.625em 0.500em 0.625em 1.125em;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+            position: relative;
+            border-right: 1px solid #F1F3F4;
+            .profile-img-name{
+                @include flexbox();
+                @include align-items(center);
+                flex: 1;
+                overflow: hidden;
+                .image{
+                    height: 3.125em;
+                    width: 3.125em;
+                    border-radius: 50%;  
+                    overflow: hidden;  
+                    img{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                span{
+                    font-size: $font16;
+                    font-family: $semibold;
+                    margin-left: 0.625em;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    cursor: pointer;
+                }
+            }
+            .profile-options{
+                margin-left: auto;
+                .newchat-icon{
+                    height: 1.500em;
+                    width: 1.500em;
+                    display: inline-block;
+                } 
+                .menu-icon{
+                    @extend .newchat-icon;
+                    margin-left: 1.063em;
+                }
+            }
+            .menu-dropdown{
+                position: absolute;
+                right: 0.625em;
+                top: 4.375em;
+                background-color: $white;
+                box-shadow: 0px 3px 6px #0000001A;
+                border-radius: 3px;
+                z-index: 1;
+                li{
+                    padding: 0.563em 1.063em;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #F3F8FF;
+                    }
+                    i{
+                        height: 0.875em;
+                        width: 0.875em;
+                        vertical-align: -2px;
+                    }
+                    span{
+                        font-size: $font14;
+                        color: #333;
+                        font-family: $regular;
+                        margin-left: 0.714em;
+                    }
+                }
+            }
+        }
+        .search{
+            padding: 0.500em 1.125em 0.188em 1.125em;
+            position: relative;
+            @include flexbox();
+            @include align-items(center);
+            input{
+                height: 2.500em;
+                width: 100%;
+                border: 1px solid #E8E8E8;
+                border-radius: 4px;
+                padding: 0px 0.714em 0px 0.714em;
+                background-color: #FCFCFC;
+                font-size: $font14;
+                font-family: $regular;
+                color: $rechathead;
+            }
+            i{
+                position: absolute;
+                right: 1.875em;
+                height: 0.875em;
+                width: 0.875em;            
+            }
+        }
+        .chat-list{
+            height: calc(100vh - 121px);
+            overflow: auto;
+            position: relative;
+            .chat-list-ul{
+                .chat-list-li{
+                    @include flexbox();
+                    @include align-items(center);
+                    padding: 0.625em 1.125em 0.625em 1.125em;
+                    border-bottom: 0.5px solid #efefef;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #EDF4F9;
+                        .recentchats .recent-message-block .recent-message-icon i.downarrow{
+                            display: block;
+                        }
+                    }
+                    .profile-image{
+                        position: relative;
+                        .image{    
+                            height: 2.688em;
+                            width: 2.688em;
+                            border-radius: 50%;
+                            overflow: hidden;
+                        }
+                        i{
+                            position: absolute;
+                            right: -3px;
+                            bottom: -2px;
+                            height: 1.188em;
+                            width: 1.188em;
+                        }
+                    }
+                    .recentchats{
+                        flex: 1;
+                        padding-left: 1.000em;
+                        min-width: 0;
+                        .recent-username-block{
+                            @include flexbox();
+                            @include align-items(center);
+                            margin-bottom: 0.313em;
+                            .recent-username{
+                                @include flexbox();
+                                @include align-items(center);
+                                flex-grow: 1;
+                                overflow: hidden;
+                                .username{
+                                    display: inherit;
+                                    overflow: inherit;
+                                    text-overflow: inherit;
+                                    white-space: inherit;
+                                    h3{
+                                        font-size: $font14;
+                                        font-family: $semibold;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        color: $rechathead;
+                                        line-height: normal;
+                                    }
+                                }
+                            }
+                            span.messagetime-plus{
+                                font-size: $font12;
+                                font-family: $regular;
+                                display: block;
+                                white-space: nowrap;
+                                color: $primary;
+                            }
+                            span.messagetime{
+                                @extend .messagetime-plus;
+                                color: $msgtime;
+                            }
+                        }
+                        .recent-message-block{
+                            @include flexbox();
+                            @include align-items(center);
+
+                            span{
+                                font-size: $font12;
+                                font-family: $regular;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                margin-right: 0.417em;
+                                color: $rechatmsg;
+                                i.user-status{
+                                    height: 0.667em;
+                                    width: 0.667em;
+                                    border-radius: 50%;
+                                    background-color: rgb(0, 226, 75);
+                                    vertical-align: middle;
+                                    margin-right: 0.188em;
+                                }
+                                i.user-status-sent{
+                                    height:0.667em;
+                                    width: 0.667em;
+                                    border-radius: 50%;
+                                    background-color: gray;
+                                    vertical-align: middle;
+                                    margin-right: 0.188em;
+                                }
+                                i.user-status-receive{
+                                    height: 0.667em;
+                                    width: 0.667em;
+                                    border-radius: 50%;
+                                    background-color:orange;
+                                    vertical-align: middle;
+                                    margin-right: 0.188em;
+                                }
+                                i.chat-camera{
+                                    height: 0.833em;
+                                    width: 1.000em;
+                                    margin-right: 0.188em;
+                                }
+                                i.chat-video{
+                                    height: 0.667em;
+                                    width: 1.000em;
+                                    margin-right: 0.188em;
+                                }
+                                i.chat-audio{
+                                    height: 1.000em;
+                                    width: 1.000em;
+                                    margin-right: 0.188em;
+                                }
+                                i.chat-docu{
+                                    height: 0.833em;
+                                    width: 0.667em;
+                                    margin-right: 0.188em;
+                                }
+                            }
+                            
+                            .recent-message-icon{
+                                @include flexbox();
+                                @include align-items(center);
+                                margin-left: auto;
+                                p{
+                                    background-color: $primary;
+                                    font-size: $font10;
+                                    font-family: $light;
+                                    text-align: center;
+                                    border-radius: 50%;
+                                    @include flexbox();
+                                    @include justify-content(center);
+                                    @include align-items(center);
+                                    float: right;
+                                    height: 1.700em;
+                                    width: 1.700em;
+                                    color: #fff;
+                                    margin-left: 0.500em;
+                                }
+                                i{
+                                    margin-left: 0.313em;
+                                    height: 1.063em;
+                                    width: 1.250em;
+                                }
+                                i.downarrow{
+                                  height: 0.688em;
+                                  width: 0.750em;
+                                  margin-left: 0.313em;
+                                  display: none;                                  
+                                }
+                            }
+                        }
+                        .active{
+                            span{                   
+                                font-family: $medium;             
+                                color: $rechatmsgactive;                                
+                            }
+                        }
+                    }
+                    .time-notification{
+                        margin-left: auto;
+                    }
+                }
+                .chat-list-li.active{
+                    background-color: #EDF4F9;                    
+                }
+            }
+            .search-head{
+                padding: 1.167em 1.500em 0 1.500em;
+                font-size: $font12;
+                font-family: $semibold;
+            }
+            .norecent-chat{
+                height: 100%;
+                @include flexbox();
+                @include justify-content(center);
+                @include align-items(center);
+                @include flex-direction(column);
+                i.norecent-chat-img{
+                    max-width:7.813em;
+                    margin-bottom: 1.375em;
+                }
+                h4{
+                    font-family: $regular;
+                    font-size: $font14;
+                    color: $rechathead;
+                    margin-bottom: 0.938em;                    
+                    padding: 0px 1.875em;
+                    text-align: center;
+                }
+                i{
+                    vertical-align: middle;
+                }
+            }
+            .no-search-record-found{
+                text-align: center;
+                margin-top: 30px;
+                font-size: $font14;
+                font-family: $regular;
+                color: $popuptext;
+            }
+        }
+
+        // contactlist styles starts
+
+        .contactlist{
+            min-height: 100vh;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+            .recent-chatlist-header{
+                padding: 1.375em 0.625em 1.375em 1.250em; 
+                background-color: $primary;
+                .profile-img-name{
+                    i{
+                        height: 1.500em;
+                        width: 1.500em;
+                        svg{
+                            fill:$white;
+                        }
+                    }                    
+                }
+                span{
+                    color: $white;
+                }
+            }
+            .chat-list-ul{
+                height: calc(100vh - 116px);
+                overflow: auto;
+                .chat-list-li{                                 
+                    @include flexbox();
+                    @include align-items(center);
+                    padding: 0.625em 0.938em;
+                    border-bottom: 0.5px solid #efefef;
+                    cursor: pointer;
+                    &:active{
+                        background-color: #EDF4F9;                    
+                    }
+                    &:hover{
+                        background-color: #EDF4F9;                    
+                    }
+                    .profile-image{
+                        position: relative;
+                        .image{    
+                            height: 2.688em;
+                            width: 2.688em;
+                            border-radius: 50%;
+                            overflow: hidden;
+                        }
+                        .img-placeholder {
+                            background-image: url(../images/sample-profile.svg);
+                        }
+                        i{
+                            position: absolute;
+                            right: -0.500em;
+                            bottom: -0.188em;
+                        }
+                    }
+                    .recentchats{
+                        flex: 1;
+                        padding-left: 0.938em;
+                        overflow: hidden;
+                        .recent-username-block{
+                            @include flexbox();
+                            @include align-items(center);
+                            margin-bottom: 0.313em;
+                            .recent-username{
+                                @include flexbox();
+                                @include align-items(center);
+                                flex-grow: 1;
+                                overflow: hidden;
+                                .username{
+                                    display: inherit;
+                                    overflow: inherit;
+                                    text-overflow: inherit;
+                                    white-space: inherit;
+                                    h3{
+                                        font-size: $font14;
+                                        font-family: $semibold;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        color: $rechathead;
+                                        line-height: normal;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .recent-message-block{
+                        @include flexbox();
+                        @include align-items(center);
+
+                        span{
+                            font-size: $font12;
+                            font-family: $regular;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            margin-right: 0.417em;
+                            color: $rechatmsg;
+                        }
+                        
+                    }
+                }
+            } 
+            .norecent-chat{
+                height: 100%;
+                @include flexbox();
+                @include justify-content(center);
+                @include align-items(center);
+                @include flex-direction(column);
+                i.norecent-chat-img{
+                    max-width:7.813em;
+                    margin-bottom: 1.375em;
+                }
+                h4{
+                    font-family: $regular;
+                    font-size: $font14;
+                    color: $rechathead;
+                    margin-bottom: 1.071em;                    
+                    padding: 0 2.143em;
+                    text-align: center;
+                }
+                i{
+                    vertical-align: middle;
+                }
+            }           
+            .no-search-record-found{
+                text-align: center;
+                margin-top: 30px;
+                font-size: $font14;
+                font-family: $regular;
+                color: $popuptext;
+            }
+        }
+    }
+
+
+    .logout-popup{
+        width: 20.625em;
+        padding: 1.563em 1.875em;
+        background-color: $white;
+        border-radius: 5px;
+        box-shadow: 0px 6px 16px #00000024;
+        .logout-label{
+            label{
+                font-size: $font15;
+                font-family: $semibold;
+                color: $rechatmsg;
+            }
+        }
+        .logout-noteinfo{
+            margin-top: 1.875em;
+            text-align: right;
+            button{
+                height: 2.500em;
+                width: 6.667em;
+                border: none;
+                font-size: $font12;
+                font-family: $semibold;
+                margin-left: 0.833em;
+                background-color: $button;
+                color: $popuptext;
+                border-radius: 2px;
+                cursor: pointer;
+            }
+            button.btn-logout{
+                background-color: $primary;
+                color: $white;
+            }
+        }
+    }
+
+    // chat conversion style starts
+
+    .chat-banner{
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        width: 73.70%;
+        .banner-block{
+            max-width:29.813em;
+            h4{
+                font-size: $font28;
+                font-family: $semibold;
+                color:$textblack;
+                text-align: center;
+                margin-top:1.679em;
+            }
+        }
+    }
+    .chat-conversion{
+        min-height: 100vh;
+        width: 73.70%;
+        background-color: $white;
+        position: relative;
+        .conversation-header{
+            @include flexbox();
+            @include justify-content(space-between);
+            @include align-items(center);
+            box-shadow: 3px 0px 8px rgba(0, 0, 0, 0.15);
+            padding: 0.625em 2.500em;
+            .user-profile-name{
+                @include flexbox();
+                @include align-items(center);
+                i.arrow-icon{
+                    height: 1.500em;
+                    width: 1.500em;
+                    display: none;
+                }
+                .profile-image{
+                    height: 3.125em;
+                    width: 3.125em;
+                    border-radius:50%;
+                    overflow: hidden;
+                    margin-right: 0.938em;
+                }
+                .profile-name{
+                    h4{
+                        color: #333333;
+                        font-size: $font18;
+                        font-family: $semibold;
+                        margin-bottom: 0.167em;
+                    }
+                    h6{
+                        color: #878787;
+                        font-size: $font12;
+                        font-family: $regular;
+                    }
+                }
+            }
+            .profile-options{
+                .search{
+                    height: 1.250em;
+                    width: 1.250em;
+                    margin-right: 0.938em;
+                }
+                .menu-icon{
+                    height: 1.250em;
+                    width: 1.250em;
+                }
+            }
+        }
+        .chatconversation-container{
+            height: calc(100vh - 87.5px);
+            background-image: url(../images/chatbg.png);
+            background-size: cover;
+            display: inline-block;
+            width: 100%;
+            .chatday{
+                text-align: center;
+                display: block;
+                padding: 0.500em 0.500em 0.500em 0.500em;
+                background-color: #97B2CE;
+                border-radius: 13px;
+                width: 4.167em;
+                margin: 0.833em auto;
+                font-size: $font12;
+                font-family: $medium;
+                color: $white;
+            }
+            .textmessage-block{
+                .send-message{
+                    margin-left: 30% !important;
+                    max-width: 70%;
+                    padding: 0.438em 0.625em;
+                    background-color: $primary;
+                    border-radius: 5px 5px 0px 5px;                    
+                    box-shadow: 0px 1px 0px #0005131A;
+                    .send-message-block{
+                        padding: 0.438em 0.625em;
+                        background-color: #4879F9;
+                        border-radius: 5px 5px 0px 5px;
+                        display: inline-block;
+                        min-width: 6.875em;
+                        width: auto;
+                        max-width: 34.375em;
+                        float: right;
+                        .message{
+                            font-size: $font13;
+                            color:$white;
+                            font-family: $regular;
+                            display: block;
+                        }
+                        .message-time{
+                            font-size: $font11;
+                            color:#B6CAFF;
+                            font-family: $light;
+                            text-align: right;
+                            display: block;
+                        }
+                    }
+                }
+                .receive-message{
+                    max-width: 70%;
+                    padding: 0.438em 0.625em;
+                    background-color: $white;
+                    border-radius: 5px 5px 0px 5px;
+                    box-shadow: 0px 1px 0px hsla(0, 0%, 0%, 0.07);
+                    .receive-message-block{
+                        padding: 0.438em 0.625em;
+                        border-radius: 5px 5px 0px 5px;
+                        display: inline-block;
+                        min-width: 6.875em;
+                        width: auto;
+                        max-width: 34.375em;
+                        float: right;
+                        .message{
+                            font-size: $font13;
+                            color:$textblack;
+                            font-family: $regular;
+                            display: block;
+                        }
+                        .message-time{
+                            font-size: $font11;
+                            color:$textblack;
+                            font-family: $light;
+                            text-align: right;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        .contactinfo-popup{
+            position: absolute;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.80);
+            width: 100%;
+            min-height: 100vh;
+            .contactinfo{
+                width: 22.813em;
+                background-color: $white;
+                display: inline-block;
+                height: 100vh;
+                .contactinfo-header{
+                    @include flexbox();
+                    @include align-items(center);
+                    padding: 1.375em 1.250em;
+                    background-color: $primary;
+                    i{
+                        margin-right: 0.813em;
+                        height: 1.625em;
+                        width: 1.625em;
+                        svg{
+                            fill:#fff;
+                        }
+                    }
+                    h4{
+                        font-size: $font16;
+                        font-family: $semibold;     
+                        color: $white;
+                    }
+                }
+                .contactinfo-image-block{
+                    @include flexbox();
+                    @include align-items(center); 
+                    padding: 1.000em 1.188em;
+                    img{
+                        height: 5.313em;
+                        width: 5.313em;
+                        border-radius: 50%; 
+                    }
+                    span{
+                        margin-left: 1.250em;
+                        font-size: $font16;
+                        font-family: $semibold;
+                    }
+                    .Viewphoto-container{
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        height: 100vh;
+                        @include flexbox();
+                        @include justify-content(center);
+                        @include align-items(center);
+                        background-color: rgba(255, 255, 255, 0.95);
+                        .Viewphoto-preview{                
+                            max-width: 65%;
+                            img{
+                                border-radius: inherit;
+                                width: auto;
+                                height: auto;
+                            }
+                            .preview-close{
+                                position: absolute;
+                                top: 20px;
+                                right: 40px;
+                            }
+                        }
+                    }
+                }
+                .contactinfo-about-no{
+                   padding: 0px 1.250em;
+                   h5{
+                    font-size: $font12;
+                    font-family: $semibold;  
+                    color: $mediahead;
+                   }
+                   .about-no{
+                        padding: 1.250em 0 1.250em 0;
+                        border-bottom: 0.5px solid #e7e7e7;
+                        i{
+                            vertical-align: middle;
+                            height: 1.125em;
+                            width: 1.125em;
+                        }    
+                        span{
+                            margin-left: 1.071em;
+                            font-size: $font14;
+                            font-family: $medium;
+                            color: $textblack;
+                        }
+                        .delete{                           
+                            color: $delete;
+                        }
+                   }
+                }
+                .contactinfo-media{
+                    padding: 0em 1.250em;
+                    margin: 1.313em 0 1.313em 0;
+                    h5{
+                        font-size: $font14;
+                        font-family: $semibold;  
+                        color: $mediahead;
+                        span.count{
+                            float: right;
+                            color: $textblack;
+                            font-size: $font16;
+                            font-family: $medium;  
+                            i{  
+                                height: 0.750em;
+                                width: 0.500em;
+                                margin-left: 0.750em;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+
+    // chat conversion style ends
+
+    .userprofile{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 100%;
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        transition: 0.4s;
+        transform:scale(1,1);
+        z-index: 11;
+        .userprofile-popup{
+            width: 30.000em;
+            background-color: #fff;
+            border-radius: 7px;
+            .userprofile-header{
+                @include flexbox();
+                @include align-items(center);
+                padding: 1.000em 2.813em 1.375em 1.250em;
+                border-bottom: 1px solid #CFCFCF;
+                background-color: $primary;                
+                border-radius: 6px 6px 0px 0px;
+                i{
+                    height: 1.625em;
+                    width: 1.625em;
+                    svg{
+                        fill:$white;
+                    }
+                }
+                h5{
+                    text-align: center;
+                    flex: 1;
+                    font-size: $font22;
+                    font-family:$medium;
+                    color: $white;
+                }
+            }
+            .userprofile-body{
+                .userprofile-image{
+                    height: 9.375em;
+                    width: 9.375em;
+                    border-radius: 50%;
+                    margin: 1.000em auto 0em auto;
+                    position: relative;
+                    img{
+                        border-radius: 50%;
+                    }
+                    i.camera-edit{
+                        position: absolute;
+                        right: 0;
+                        bottom:7px;
+                        height: 2.188em;
+                        width: 2.188em;
+                    }
+                    .profile-dropdown{
+                        position: absolute;
+                        right: -6.250em;
+                        top: 9.375em;
+                        background-color: $white;
+                        box-shadow: 0px 3px 6px #0000001A;
+                        border-radius: 3px;
+                        // padding: 1.188em 1.063em;
+                        z-index: 1;
+                        li{
+                            padding: 0.563em 1.063em;
+                            cursor: pointer;
+                            &:hover{
+                                background-color: #F3F8FF;
+                            }
+                            i.profileedit-options{
+                                height: 0.875em;
+                                width: 0.875em;
+                                vertical-align: -2px;
+                            }
+                            span{
+                                font-size: $font12;
+                                color: #333;
+                                font-family: $regular;
+                                margin-left: 0.625em;
+                            }
+                        }
+                    }
+                    .Viewphoto-container,
+                    .camera-container,
+                    .removephoto-container{
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        height: 100vh;
+                        @include flexbox();
+                        @include justify-content(center);
+                        @include align-items(center);
+                        background-color: rgba(255, 255, 255, 0.95);
+                        .Viewphoto-preview{                
+                            max-width: 65%;
+                            img{
+                                border-radius: inherit;
+                            }
+                            .preview-close{
+                                position: absolute;
+                                height: 1.500em;
+                                width: 1.500em;
+                                top: 1.250em;
+                                right: 2.500em;
+                            }
+                        }
+
+                        // camera popup not found styles
+                        .camera-popup{
+                            width: 20.625em;
+                            padding: 1.563em 1.875em;
+                            background-color: $white;
+                            border-radius: 5px;
+                            box-shadow: 0px 6px 16px #00000024;
+                            display: none;
+                            h4{
+                                text-align: center;
+                                font-size: $font16;
+                                color: $primary;
+                                font-family: $bold;
+                            }
+                            i{
+                                max-width: 4.875em;
+                                margin: 0 auto;
+                                display: block;
+                                margin-top: 0.938em;
+                            }
+                            p{
+                                text-align: justify;
+                                font-size: $font14;
+                                color: $rechatmsg;
+                                font-family: $semibold;
+                                margin-top: 0.938em;
+                            }
+                            .popup-controls{
+                                text-align: right;
+                                button{
+                                    height: 1.875em;
+                                    width: 5.000em;
+                                    border: none;
+                                    font-size: $font12;
+                                    font-family: $semibold;
+                                    margin-left: 0.625em;
+                                    background-color: $primary;
+                                    color: $white;
+                                    border-radius: 2px;
+                                    cursor: pointer;
+                                    margin-top: 0.938em;
+                                }
+                            }
+                        }
+                        // camera popup not found styles ends
+
+                        // camera popup visible starts
+
+                        .camera-popup-visible{
+                            width:26.250em;
+                            background-color: $white;
+                            border-radius: 5px;
+                            box-shadow: 0px 6px 16px #00000024;
+                            .userprofile-header{
+                                border-bottom:none;
+                                padding: 0.813em 2.813em 0.813em 1.250em ;
+                                i{
+                                    height: 1.500em;
+                                    width: 1.500em;
+                                }
+                                h5{
+                                    font-size: $font16;
+                                    font-family: $medium;
+                                }
+                            }
+                            .cameraview{
+                                max-width: 100%;
+                                @include flexbox();
+                                @include justify-content(center);
+                                @include align-items(center);
+                                img.camera-pic{
+                                    border-radius: unset;                                    
+                                }
+                            }
+                            .popup-controls{
+                                text-align: right;
+                                padding: 0.938em 1.250em;
+                                i{
+                                    height: 2.438em;
+                                    width: 2.438em;
+                                    margin-left: 0.938em;
+                                }
+                            }
+                        }
+
+                        // camera popup visible style ends
+
+                        // remove photo styles start
+                            .removephoto-popup{
+                                width: 20.625em;
+                                padding: 1.563em 1.875em;
+                                background-color: $white;
+                                border-radius: 5px;
+                                box-shadow: 0px 6px 16px #00000024;
+                                .removephoto-label{
+                                    label{
+                                        font-size: $font15;
+                                        font-family: $semibold;
+                                        color: $rechatmsg;
+                                    }
+                                }
+                                .removephoto-noteinfo{
+                                    margin-top: 1.875em;
+                                    text-align: right;
+                                    button{
+                                        height: 2.500em;
+                                        width: 6.667em;
+                                        border: none;
+                                        font-size: $font12;
+                                        font-family: $semibold;
+                                        margin-left: 0.625em;
+                                        background-color: $button;
+                                        color: $popuptext;
+                                        border-radius: 2px;
+                                        cursor: pointer;
+                                    }
+                                    button.btn-removephoto{
+                                        background-color: $primary;
+                                        color: $white;
+                                    }
+                                }
+                            }
+                        // remove photo styles start ends
+                    }
+                }
+                .profile{
+                    padding: 0em 1.313em;
+                    margin: 0.500em 0em 2.063em 0em;
+                    .profile-details{
+                        position: relative;
+                        @include flexbox();
+                        @include align-items(center);
+                        width: 90%;
+                        margin: 0em 0em 1.375em 0em;
+                        i.status{
+                            height: 1.250em;
+                            width: 1.000em;
+                            margin-right: 1.250em;
+                        }
+                        .form-control{
+                            flex: 1;
+                            position: relative;
+                            @include flexbox();
+                            @include align-items(center);
+                            height:2.813em;
+                            input{
+                                height: 1.500em;
+                                width: 100%;
+                                border:none;
+                                border-bottom: 1px solid #ccc;  
+                                font-size: $font16;
+                                font-family: $medium;
+                                padding: 0.625em 0em;
+                                padding-right: 3.750em;                                
+                            }   
+                            .char-count{
+                                position: absolute;
+                                right: 2.917em;
+                                font-size: $font12;
+                                font-family: $regular;                               
+                            }
+                            i.emoji{
+                                position: absolute;
+                                right: 0.625em;
+                                height: 0.875em;
+                                width: 0.875em;                                
+                            }
+                            .em-slightly_smiling_face {
+                                background-image: url(../images/emoji.svg);
+                                font-size: $font10;
+                                margin-top: -0.600em;
+                            }
+                            aside.emoji-picker-react {
+                                background: #fff;
+                                display: flex;
+                                flex-direction: column;
+                                height: 19.375em;
+                                width: 15.625em;
+                                font-family: sans-serif;
+                                border: 1px solid #efefef;
+                                border-radius: 5px;
+                                box-sizing: border-box;
+                                box-shadow: 0 5px 10px #efefef;
+                                overflow: hidden;
+                                position: relative;
+                                z-index: 1;
+                                margin-top: -335px;
+                            }
+                            .emoji-search{
+                                display: none;;
+                            }
+                            .skin-tones-list{
+                                display: none;
+                            }       
+                            h4{
+                                font-size: $font26;
+                                font-family: $semibold;
+                                text-align: center;
+                                width: 100%;
+                                word-break: break-all;
+                                display: block;
+                            }
+                        }
+                        .controls{
+                            height: 0.875em;
+                            i.edit{
+                                height: 0.875em;
+                                width: 0.875em;
+                                display: block;
+                            }
+                            i.done{
+                                height: 0.875em;
+                                width: 0.875em;                                
+                            }
+                        }
+                        
+                    }
+                    .username{
+                        i.status{
+                            visibility: hidden;
+                            opacity: 0;
+                        }
+                    }
+                    label{
+                        margin-bottom: 1.375em;
+                        color:#95AAC5;
+                        font-size: $font14;
+                        font-family: $semibold;
+                        display: block;
+                    }
+                    .status{
+                        .form-control{
+                            height:2.813em;
+                            input{
+                                font-size: $font14;
+                                padding: 0.714em 0em;
+                                padding-right: 4em;           
+                            }
+                            h4{
+                                font-size: $font16;
+                                font-family: $medium;  
+                                text-align: left;
+                            }
+                        }
+                    }
+                    .info{
+                        margin-top: 1.375em;
+                        i{
+                            height: 0.875em;
+                            width: 0.875em;
+                            margin-right: 1.313em;
+                        }
+                        span{
+                         font-size: $font14;
+                         font-family: $regular;
+                         color:rgba(138, 141, 145, 0.65);
+                         vertical-align: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+@media only screen and (min-width: 1441px){
+    html{
+        font-size: 20px;   
+    }
+}
+@media only screen and (min-width: 1367px) and (max-width: 1440px){
+    html{
+        font-size: 18px;   
+    }
+}
